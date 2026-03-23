@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kausta Spann | Instructional Design Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .work-content {
+            padding: 25px;
+        }
+
+        .work-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .work-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .work-link {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .work-link:hover {
+            text-decoration: underline;
+        }
+
+        .process-section {
+            background: #f9f9f9;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .process-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 10px 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .experience-timeline {
+            margin-top: 50px;
+        }
+
+        .timeline-item {
+            padding: 30px;
+            background: white;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .timeline-item h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .timeline-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .timeline-item li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Kausta Spann</div>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Kausta Spann</h1>
+            <p class="subtitle">Instructional Designer</p>
+            <p>I design scenario-based learning experiences that help people perform confidently in high-stakes environments where mistakes have real consequences.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="work" class="container">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-intro">A selection of enterprise learning projects spanning federal agencies, utilities, and Fortune 500 companies.</p>
+        
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-image">🎓</div>
+                <div class="work-content">
+                    <h3>Learning in Fast Changing Environments</h3>
+                    <div class="work-tags">
+                        <span class="tag">Workshop Design</span>
+                        <span class="tag">Adult Learning</span>
+                        <span class="tag">Facilitation</span>
+                    </div>
+                    <p>Workshop curriculum for high-stakes operational teams. Designed to help trainers adapt content when processes evolve rapidly. Focuses on adult learning principles and performance support over knowledge transfer.</p>
+                    <a href="https://www.loom.com/share/71bbf9a454cf4039a5b50c2ad88c5044" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image">🚗</div>
+                <div class="work-content">
+                    <h3>Fleet Management System Rollout</h3>
+                    <div class="work-tags">
+                        <span class="tag">Articulate Rise</span>
+                        <span class="tag">Pendo</span>
+                        <span class="tag">Change Management</span>
+                    </div>
+                    <p>Designed phased training strategy for 80,000+ employees transitioning to new vehicle management platform. Created awareness campaigns, required training modules, in-app guides, and adoption analytics dashboards.</p>
+                    <a href="https://www.loom.com/share/d1095a2d4f8342f9a8b6233ef6256e12" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image">📱</div>
+                <div class="work-content">
+                    <h3>Mobile Check-In Training</h3>
+                    <div class="work-tags">
+                        <span class="tag">Digital Adoption</span>
+                        <span class="tag">Job Aids</span>
+                        <span class="tag">Stakeholder Management</span>
+                    </div>
+                    <p>Supported customer-facing teams through digital transformation of rental check-in process. Collaborated with product and operations teams to create role-based training and performance support resources.</p>
+                    <a href="https://www.loom.com/share/a535991be41944ed9364d3d82265d1a5" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image">🏛️</div>
+                <div class="work-content">
+                    <h3>Learning Ecosystem Strategy</h3>
+                    <div class="work-tags">
+                        <span class="tag">LMS Integration</span>
+                        <span class="tag">Needs Analysis</span>
+                        <span class="tag">Stakeholder Alignment</span>
+                    </div>
+                    <p>Conducted needs assessment and designed learning ecosystem strategy aligning three platforms (Skillsoft Percipio, LinkedIn Learning, Yardi) to support workforce development and compliance goals.</p>
+                    <a href="https://www.loom.com/share/713f3d43a397457b99a7229d0439b618" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image">🤖</div>
+                <div class="work-content">
+                    <h3>AI-Enhanced Design Workflows</h3>
+                    <div class="work-tags">
+                        <span class="tag">ChatGPT</span>
+                        <span class="tag">Process Optimization</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                    <p>Integrated AI tools into instructional design workflow to accelerate scenario development, content reviews, and troubleshooting. Reduced design iteration cycles while maintaining quality standards.</p>
+                    <a href="https://youtu.be/jl1x792FPi4" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image">⚙️</div>
+                <div class="work-content">
+                    <h3>ServiceNow Training Library</h3>
+                    <div class="work-tags">
+                        <span class="tag">Articulate Storyline</span>
+                        <span class="tag">Simulations</span>
+                        <span class="tag">Systems Training</span>
+                    </div>
+                    <p>Built reusable simulation library for complex ServiceNow workflows. Translated technical process documentation into interactive tutorials that reduced support tickets and improved user confidence.</p>
+                    <a href="https://www.loom.com/share/b88b228b48e64b358928224eec0018c6" class="work-link" target="_blank">View Demo →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title">My Design Process</h2>
+            <p class="section-intro">I follow a human-centered approach grounded in ADDIE methodology and adult learning principles.</p>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Analyze</h3>
+                    <p>Conduct needs analysis through stakeholder interviews, performance data review, and SME consultation to identify root causes and learning gaps.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Design</h3>
+                    <p>Create learning objectives aligned with business goals. Design assessment strategy and select delivery methods based on audience needs and constraints.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Develop</h3>
+                    <p>Build interactive prototypes and full courses using Articulate 360, integrate SME feedback, and ensure Section 508 accessibility compliance.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Implement</h3>
+                    <p>Deploy training through LMS or digital adoption platforms. Coordinate with stakeholders on communication strategy and adoption support.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">5</div>
+                    <h3>Evaluate</h3>
+                    <p>Measure effectiveness using Kirkpatrick model. Track completion rates, performance metrics, and learner feedback to inform continuous improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">Skills & Tools</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Authoring Tools</h3>
+                <ul>
+                    <li>Articulate 360 (Storyline & Rise)</li>
+                    <li>Camtasia & Synthesia</li>
+                    <li>Adobe Creative Suite</li>
+                    <li>Microsoft Office Suite</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Learning Design</h3>
+                <ul>
+                    <li>Scenario-Based Learning</li>
+                    <li>ADDIE Methodology</li>
+                    <li>Kirkpatrick Evaluation Model</li>
+                    <li>Adult Learning Theory</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Digital Adoption</h3>
+                <ul>
+                    <li>Pendo In-App Guidance</li>
+                    <li>Performance Support Design</li>
+                    <li>Change Management</li>
+                    <li>Adoption Analytics</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Collaboration</h3>
+                <ul>
+                    <li>Stakeholder Management</li>
+                    <li>SME Partnership</li>
+                    <li>Cross-Functional Teamwork</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Compliance & Accessibility</h3>
+                <ul>
+                    <li>Section 508 Accessibility</li>
+                    <li>Plain Language Standards</li>
+                    <li>WCAG 2.1 Guidelines</li>
+                    <li>Federal Training Requirements</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Emerging Technology</h3>
+                <ul>
+                    <li>AI-Enhanced Workflows (ChatGPT)</li>
+                    <li>Automation & Efficiency</li>
+                    <li>Data-Driven Decision Making</li>
+                    <li>Continuous Learning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <p>I am an instructional designer with 12+ years of experience creating learning solutions for organizations where training directly impacts operational outcomes. My work focuses on translating complex processes into clear, actionable learning experiences that people can apply immediately on the job.</p>
+                
+                <p>I have designed training for federal agencies, regulated utilities, and Fortune 500 companies, always with an emphasis on scenario-based learning and performance support over information transfer. I believe the best training feels less like a course and more like practicing the real thing.</p>
+                
+                <p>I am particularly interested in how AI tools can accelerate the design process without compromising quality, and how digital adoption platforms can provide support exactly when learners need it most.</p>
+            </div>
+
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Kausation Consulting</h3>
+                    <p class="timeline-meta">Training Manager / L&D Consultant | 2025 – Present</p>
+                    <ul>
+                        <li>Lead AI-enabled learning design initiatives for enterprise clients</li>
+                        <li>Design onboarding systems and scalable eLearning ecosystems</li>
+                        <li>Develop scenario-based training and performance support resources</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>U.S. Department of State</h3>
+                    <p class="timeline-meta">Senior Curriculum Specialist | 2024 – 2025</p>
+                    <ul>
+                        <li>Designed blended learning programs for Foreign Service professionals</li>
+                        <li>Conducted enterprise needs assessments for policy-driven training</li>
+                        <li>Implemented evaluation strategies aligned with Kirkpatrick model</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Enterprise Mobility</h3>
+                    <p class="timeline-meta">Product Delivery Specialist | 2022 – 2023</p>
+                    <ul>
+                        <li>Developed simulation-based learning for 80,000+ employees</li>
+                        <li>Translated ServiceNow workflows into interactive Articulate tutorials</li>
+                        <li>Built reusable scenario libraries for global deployment</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Ameren Corporation</h3>
+                    <p class="timeline-meta">Instructional Designer | 2013 – 2021</p>
+                    <ul>
+                        <li>Led systems enablement training supporting 9,000+ utility employees</li>
+                        <li>Updated 100+ security training modules during vendor transition</li>
+                        <li>Designed contact center training reducing user error and support volume</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="color: white;">Let's Connect</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">I'm currently exploring Senior Learning Designer and Instructional Designer opportunities at federal contractors, tech companies, and healthcare organizations.</p>
+            
+            <div class="contact-info">
+                <a href="mailto:kausta.spann@gmail.com">kausta.spann@gmail.com</a>
+                <span>|</span>
+                <a href="tel:+13147456161">(314) 745-6161</a>
+                <span>|</span>
+                <a href="https://linkedin.com/in/KaustaSpann-070517" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kausta Spann. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
